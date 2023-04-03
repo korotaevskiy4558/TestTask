@@ -10,8 +10,10 @@ buildscript {
         kotlinVersion = "1.7.10"
 
         //Coroutines RN https://github.com/Kotlin/kotlinx.coroutines
+        coroutinesVersion = "1.6.4"
         coroutines = [
-                lib: "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+                lib: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+                test: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
         ]
 
         //AndroidX core RN https://developer.android.com/jetpack/androidx/releases/core
@@ -47,7 +49,10 @@ buildscript {
                 //Compose tooling RN https://developer.android.com/jetpack/compose/tooling
                 uiToolingPreview: "androidx.compose.ui:ui-tooling-preview:$composeUiVersion",
                 //Constraint layout https://developer.android.com/jetpack/compose/layouts/constraintlayout
-                constraintLayout: "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+                constraintLayout: "androidx.constraintlayout:constraintlayout-compose:1.0.1",
+                //Test
+                uiJunit4        : "androidx.compose.ui:ui-test-junit4:$composeUiVersion",
+                testManifest    : "androidx.compose.ui:ui-test-manifest:$composeUiVersion"
         ]
 
         //Accompanist RN https://github.com/google/accompanist/releases
@@ -68,6 +73,14 @@ buildscript {
         retrofit = [
                 lib          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
                 jsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        ]
+        junitVersion = "4.13.2"
+        junit =[
+                junit : "junit:junit:$junitVersion"
+        ]
+        androidxTestCoreVersion = "1.6.0-alpha01"
+        androidxTestCore =[
+                core : "androidx.test:core:$androidxTestCoreVersion"
         ]
     }
 
